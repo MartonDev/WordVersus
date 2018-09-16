@@ -1,0 +1,142 @@
+.dashboard .sidenav {
+
+  display: inline-block;
+  vertical-align: top;
+  height: 100vh;
+  padding: 5px;
+  padding-top: 10px;
+  position: fixed;
+  background-color: #444f70;
+  overflow-y: auto;
+
+}
+
+.dashboard .sidenav .menu {
+
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  position: relative;
+
+}
+
+.dashboard .sidenav .menu a {
+
+  padding: 10px;
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  margin-bottom: 12px;
+  font-size: 30px;
+  text-align: center;
+  border-radius: 5px;
+  background-color: transparent;
+  -webkit-transition: background-color 0.16s linear;
+  -ms-transition: background-color 0.16s linear;
+  transition: background-color 0.16s linear;
+
+}
+
+.dashboard .sidenav .menu a:hover {
+
+  background-color: #383f53;
+  -webkit-transition: background-color 0.16s linear;
+  -ms-transition: background-color 0.16s linear;
+  transition: background-color 0.16s linear;
+
+}
+
+.dashboard .sidenav .menu .logo {
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 40px;
+
+}
+
+.dashboard .container {
+
+  padding: 40px 30px 20px 100px;
+
+}
+
+.dashboard .container .main {
+
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 25px;
+  max-height: 80vh;
+  overflow-y: auto;
+  border: 2px solid #fff;
+
+}
+
+.dashboard .container .main .title {
+
+  color: #444f70;
+  font-size: 27px;
+  margin: 0;
+  margin-bottom: 14px;
+  font-weight: bolder;
+
+}
+
+.dashboard .container .main h1 {
+
+  font-size: 23px;
+  color: #a9abac;
+  font-weight: 200;
+
+}
+
+.dashboard .container .main .game-menu {
+
+  display: inline-block;
+  position: relative;
+  width: 48%;
+  height: 200px;
+  vertical-align: middle;
+  border-radius: 10px;
+  background: linear-gradient(270deg, #6f2cd3, #8c2cd6);
+  text-align: center;
+  text-decoration: none;
+  margin-bottom: 30px;
+  color: #fff;
+  -webkit-transition: background 0.16s linear;
+  -ms-transition: background 0.16s linear;
+  transition: background 0.16s linear;
+
+}
+
+.dashboard .container .main .game-menu:hover {
+
+  background: linear-gradient(270deg, #5920ad, #64199e);
+  -webkit-transition: background 0.16s linear;
+  -ms-transition: background 0.16s linear;
+  transition: background 0.16s linear;
+
+}
+
+.dashboard .container .main .game-menu h1 {
+
+  color: #fff;
+  font-size: 27px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+
+@media screen and (max-width: 790px) {
+
+  .dashboard .container .main .game-menu {
+
+    width: 100%;
+
+  }
+
+}
