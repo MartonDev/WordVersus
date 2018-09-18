@@ -131,11 +131,58 @@
 
 }
 
+.profile-container {
+
+  width: 60%;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #a9abacb8;
+
+}
+
+.profile-container img {
+
+  height: 150px;
+  display: inline-block;
+  vertical-align: top;
+  border-radius: 50%;
+
+}
+
+.profile-container .userinfo {
+
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 20px;
+
+}
+
+.profile-container .userinfo .username {
+
+  font-size: 26px !important;
+  color: #444f70 !important;
+
+}
+
+.profile-container .userinfo .email {
+
+  font-size: 18px !important;
+  color: #444f70 !important;
+
+}
+
 @media screen and (max-width: 790px) {
 
   .dashboard .container .main .game-menu {
 
     width: 100%;
+
+  }
+
+  .profile-container {
+
+    width: 80%;
+    text-align: center;
 
   }
 
