@@ -2,6 +2,8 @@
 
   $(document).ready(function () {
 
+      $("#scrollTop").addClass("bounceOutDown");
+
       $(window).scroll(function () {
 
         if (!($(this).scrollTop() > 100)) {
