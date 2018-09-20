@@ -39,6 +39,8 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="description" content="<?php echo SITE_DESCRIPTION ?>">
 
+    <?php echo "<!--Website made by Marton. Copyright (c) " . date("Y") . "-->"; ?>
+
   </head>
 
   <body onload="loadBody()">

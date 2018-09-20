@@ -42,6 +42,39 @@
 
        </div>
 
+       <br />
+
+       <h1 class="title">Stats</h1>
+
+       <div class="table">
+
+         <table class="stats">
+
+           <tr>
+
+             <td>Wins</td>
+             <td class="value">10</td>
+
+           </tr>
+
+           <tr>
+
+             <td>Correct words</td>
+             <td class="value">10000</td>
+
+           </tr>
+
+           <tr>
+
+             <td>Wrong words</td>
+             <td class="value">1000</td>
+
+           </tr>
+
+         </table>
+
+       </div>
+
      </div>
 
    </div>
