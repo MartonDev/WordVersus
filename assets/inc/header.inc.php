@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <?php
 
-      if($page == "Dashboard") {
+      if($page == "Dashboard" || $page == "Login") {
 
         echo '<link rel="stylesheet" href="' . SITE_URL . '/assets/css/dashboard.css" />';
 
