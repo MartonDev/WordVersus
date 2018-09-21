@@ -4,11 +4,6 @@ var imageElements = document.getElementsByClassName("imageElement");
 
 function loadBody() {
 
-  //loading animation
-  var timeout = setTimeout(endAnimation, 1500);
-  var loadingContainer = document.getElementById("loadingContainer");
-  loadingContainer.style.width = "100%";
-
   //author
   console.log("Welcome! Site made by Marton");
 
@@ -39,6 +34,11 @@ function loadBody() {
     };
 
   }
+
+  //loading animation
+  var timeout = setTimeout(endAnimation, 1500);
+  var loadingContainer = document.getElementById("loadingContainer");
+  loadingContainer.style.width = "100%";
 
 }
 

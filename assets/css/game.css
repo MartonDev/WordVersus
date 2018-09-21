@@ -1,0 +1,42 @@
+.loading {
+
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+
+}
+
+.loading .container {
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+
+.loading .container .title {
+
+  font-size: 25px;
+  color: #fff;
+  text-align: center;
+
+}
+
+.loading .container .line {
+
+  width: 70vw;
+  height: 30px;
+  background-color: rgba(255, 255, 255, 0.4);
+
+}
+
+.loading .container .line .fill {
+
+  background-color: #fff;
+  height: 100%;
+  width: 0;
+  -webkit-transition: width 1.5s;
+  transition: width 1.5s;
+
+}

@@ -25,9 +25,16 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <?php
 
-      if($page == "Dashboard" || $page == "Login") {
+      if($page == "Dashboard" || $page == "Login" || $page == "Register") {
 
         echo '<link rel="stylesheet" href="' . SITE_URL . '/assets/css/dashboard.css" />';
+
+      }
+
+      if(isset($game)) {
+
+        echo '<link rel="stylesheet" href="' . SITE_URL . '/assets/css/game.css" />
+        <script src="' .  SITE_URL . '/assets/js/game.js"></script>';
 
       }
 
@@ -45,4 +52,16 @@
 
   <body onload="loadBody()">
 
+    <?php
+
+      if(!isset($game)) {
+
+    ?>
+
     <div class="loading-line"><div id="loadingContainer" class="container"></div></div>
+
+    <?php
+
+      }
+
+     ?>

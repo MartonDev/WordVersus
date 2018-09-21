@@ -366,6 +366,12 @@
 
 }
 
+.emailinput {
+
+  background-image: url(../img/emailicon.png);
+
+}
+
 @media screen and (max-width: 790px) {
 
   .dashboard .container .main {
