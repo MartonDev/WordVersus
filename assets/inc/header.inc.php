@@ -2,6 +2,31 @@
 
   require 'config.inc.php';
 
+  session_start();
+
+  require 'classes/User.php';
+  $userObj = new User();
+
+  if($userObj->isLoggedIn() && $page == "Home") {
+
+    header("Location: dashboard/");
+    die();
+
+  }
+
+  if($page == "Dashboard" && !($userObj->isLoggedIn())) {
+
+    header("Location: login.php");
+    die();
+
+  }
+
+  if(isset($_GET["logout"])) {
+
+    $userObj->logOut();
+
+  }
+
  ?>
 
 <!doctype html>

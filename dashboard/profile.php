@@ -35,8 +35,8 @@
 
          <div class="userinfo">
 
-           <h1 class="username">Username</h1>
-           <h1 class="email">email@user.com</h1>
+           <h1 class="username"><?php echo $userObj->getUsername(); ?></h1>
+           <h1 class="email"><?php echo $userObj->getEmail(); ?></h1>
 
          </div>
 

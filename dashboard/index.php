@@ -28,7 +28,7 @@
      <div class="main">
 
        <h1 class="title">Home</h1>
-       <h1>Welcome, User!</h1>
+       <h1>Welcome, <?php echo $userObj->getUsername(); ?>!</h1>
 
        <br />
 
