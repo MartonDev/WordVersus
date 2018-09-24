@@ -117,6 +117,28 @@
 
     }
 
+    public function changeEmail($email) {
+
+      if($email != "") {
+
+        $username = $this->getUsername();
+
+        $mysqli = new mysqli("localhost", MYSQL_USERNAME, MYSQL_PASSWORD, MYSQL_DATABASE);
+
+        $exc = $mysqli->prepare("UPDATE `users` SET `email`=? WHERE `username`=?");
+        $exc->bind_param("ss", $email, $username);
+        $exc->execute();
+
+        return "Successfuly changed email!";
+
+      }else {
+
+        return "Could not change email!";
+
+      }
+
+    }
+
     function getStat($stat_name) {
 
       $stats = array('wins' => 0, 'total_games' => 0, 'correct_words' => 0, 'wrong_words' => 0);

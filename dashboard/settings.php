@@ -4,6 +4,12 @@
 
   require '../assets/inc/header.inc.php';
 
+  if(isset($_POST["email-change"])) {
+
+    $result = $userObj->changeEmail($_POST["email"]);
+
+  }
+
  ?>
 
  <div class="dashboard">
@@ -43,8 +49,8 @@
 
        <form action="" method="post">
 
-         <input class="text-input" type="email" placeholder="New email..." required />
-         <input class="submit-button" type="submit" value="Go!" />
+         <input class="text-input" type="email" name="email" placeholder="New email..." required />
+         <input class="submit-button" type="submit" name="email-change" value="Go!" />
 
        </form>
 
