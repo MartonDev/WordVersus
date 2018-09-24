@@ -74,7 +74,34 @@
 
     public function signUp($username, $email, $password) {
 
+      if($username == "" || $email == "" || $password == "") {
 
+        return "Cannot be empty.";
+
+      }
+
+      $mysqli = new mysqli("localhost", MYSQL_USERNAME, MYSQL_PASSWORD, MYSQL_DATABASE);
+
+      $exc = $mysqli->prepare("SELECT `username` FROM `users` WHERE `username`=?");
+      $exc->bind_param("s", $username);
+      $exc->execute();
+      $exc->store_result();
+
+      if($exc->num_rows > 0) {
+
+        return "Username already in use.";
+
+      }else {
+
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT, ['cost' => 12]);
+
+        $exc = $mysqli->prepare("INSERT INTO `users`(`username`, `password`, `email`) VALUES (?,?,?)");
+        $exc->bind_param("sss", $username, $hashed_password, $email);
+        $exc->execute();
+
+        return 'You have successfuly registered. You may log in now <a href="login.php">here</a>.';
+
+      }
 
     }
 
@@ -87,6 +114,31 @@
     public function changePassword($currentPassword, $newPassword) {
 
 
+
+    }
+
+    function getStat($stat_name) {
+
+      $stats = array('wins' => 0, 'total_games' => 0, 'correct_words' => 0, 'wrong_words' => 0);
+      $username = $this->getUsername();
+
+      $mysqli = new mysqli("localhost", MYSQL_USERNAME, MYSQL_PASSWORD, MYSQL_DATABASE);
+
+      $exc = $mysqli->prepare("SELECT `wins`,`total_games`,`correct_words`,`wrong_words` FROM `users` WHERE `username`=?");
+      $exc->bind_param("s", $username);
+      $exc->execute();
+      $exc->bind_result($stats["wins"], $stats["total_games"], $stats["correct_words"], $stats["wrong_words"]);
+      $exc->fetch();
+
+      if($stat_name == "") {
+
+        return $stats;
+
+      }else {
+
+        return $stats[$stat_name];
+
+      }
 
     }
 

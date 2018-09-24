@@ -13,7 +13,7 @@
 
     }else {
 
-      echo "no";
+      $error = "Wrong password or username!";
 
     }
 
@@ -41,6 +41,16 @@
      </form>
 
    </div>
+
+   <?php
+
+    if(isset($error)) {
+
+      echo '<h1 class="login-error">' . $error . '</h1>';
+
+    }
+
+    ?>
 
  </div>
 

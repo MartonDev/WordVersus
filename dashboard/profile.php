@@ -52,22 +52,29 @@
 
            <tr>
 
+             <td>Total games</td>
+             <td class="value"><?php echo $userObj->getStat("total_games"); ?></td>
+
+           </tr>
+
+           <tr>
+
              <td>Wins</td>
-             <td class="value">10</td>
+             <td class="value"><?php echo $userObj->getStat("wins"); ?></td>
 
            </tr>
 
            <tr>
 
              <td>Correct words</td>
-             <td class="value">10000</td>
+             <td class="value"><?php echo $userObj->getStat("correct_words"); ?></td>
 
            </tr>
 
            <tr>
 
              <td>Wrong words</td>
-             <td class="value">1000</td>
+             <td class="value"><?php echo $userObj->getStat("wrong_words"); ?></td>
 
            </tr>
 

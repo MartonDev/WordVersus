@@ -14,6 +14,13 @@
 
   }
 
+  if($userObj->isLoggedIn() && ($page == "Register" || $page == "Login")) {
+
+    header("Location: index.php");
+    die();
+
+  }
+
   if($page == "Dashboard" && !($userObj->isLoggedIn())) {
 
     header("Location: login.php");

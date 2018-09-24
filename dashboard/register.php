@@ -4,6 +4,20 @@
 
   require '../assets/inc/header.inc.php';
 
+  if(isset($_POST["register-submit"])) {
+
+    if($_POST["password1"] != $_POST["password2"]) {
+
+      $result = "Passwords don't match";
+
+    }else {
+
+      $result = $userObj->signUp($_POST["username"], $_POST["email"], $_POST["password1"]);
+
+    }
+
+  }
+
  ?>
 
  <div class="login">
@@ -16,16 +30,26 @@
 
      <form action="" method="post">
 
-       <input class="text-input usernameinput" type="text" placeholder="Username..." required />
-       <input class="text-input emailinput" type="password" placeholder="Email..." required />
-       <input class="text-input passwordinput" type="password" placeholder="Password..." required />
-       <input class="text-input passwordinput" type="password" placeholder="Password again..." required />
+       <input class="text-input usernameinput" type="text" name="username" placeholder="Username..." required />
+       <input class="text-input emailinput" type="email" name="email" placeholder="Email..." required />
+       <input class="text-input passwordinput" type="password" name="password1" placeholder="Password..." pattern=".{7,}" required />
+       <input class="text-input passwordinput" type="password" name="password2" placeholder="Password again..." pattern=".{7,}" required />
 
-       <input class="submit-button" type="submit" value="Go!" />
+       <input class="submit-button" type="submit" name="register-submit" value="Go!" />
 
      </form>
 
    </div>
+
+   <?php
+
+    if(isset($result)) {
+
+      echo '<h1 class="login-error">' . $result . '</h1>';
+
+    }
+
+    ?>
 
  </div>
 
