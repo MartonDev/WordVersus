@@ -4,6 +4,12 @@
 
   require '../assets/inc/header.inc.php';
 
+  if(isset($_GET["loggedIn"])) {
+
+    $result = "Welcome back, " . $userObj->getUsername() . "!";
+
+  }
+
  ?>
 
  <div class="dashboard">
@@ -47,6 +53,16 @@
    </div>
 
  </div>
+
+ <?php if(isset($result)) { ?>
+
+   <script>
+
+    notifyUser("Info", "<?php echo $result; ?>", 4000);
+
+   </script>
+
+ <?php } ?>
 
 <?php
 

@@ -41,15 +41,15 @@
 
    </div>
 
-   <?php
+    <?php if(isset($result)) { ?>
 
-    if(isset($result)) {
+      <script>
 
-      echo '<h1 class="login-error">' . $result . '</h1>';
+       notifyUser("Info", "<?php echo $result; ?>", 7000);
 
-    }
+      </script>
 
-    ?>
+    <?php } ?>
 
  </div>
 

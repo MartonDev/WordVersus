@@ -8,7 +8,7 @@
 
     if($userObj->logIn($_POST["username"], $_POST["password"])) {
 
-      header("Location: index.php");
+      header("Location: index.php?loggedIn=1");
       die();
 
     }else {
@@ -42,15 +42,11 @@
 
    </div>
 
-   <?php
+   <?php if(isset($error)) { ?>
 
-    if(isset($error)) {
+     <script>notifyUser("Error", "<?php echo $error; ?>", 4000);</script>
 
-      echo '<h1 class="login-error">' . $error . '</h1>';
-
-    }
-
-    ?>
+   <?php } ?>
 
  </div>
 

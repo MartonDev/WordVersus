@@ -50,8 +50,10 @@
     <script src="<?php echo SITE_URL ?>/assets/js/scroll.js"></script>
     <script src="<?php echo SITE_URL ?>/assets/js/smoothscroll.js"></script>
     <script src="<?php echo SITE_URL ?>/assets/js/scrolltop.js"></script>
+    <script src="<?php echo SITE_URL ?>/assets/js/notifications.js"></script>
 
     <link rel="stylesheet" href="<?php echo SITE_URL ?>/assets/css/style.css" />
+    <link rel="stylesheet" href="<?php echo SITE_URL ?>/assets/css/notifications.css" />
     <link rel="stylesheet" href="<?php echo SITE_URL ?>/assets/css/animate.css" />
     <link rel="stylesheet" href="<?php echo SITE_URL ?>/assets/css/fonts/ProductSans.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">

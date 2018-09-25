@@ -71,6 +71,16 @@
 
  </div>
 
+ <?php if(isset($result)) { ?>
+
+   <script>
+
+    notifyUser("Info", "<?php echo $result; ?>", 4000);
+
+   </script>
+
+ <?php } ?>
+
 <?php
 
   require '../assets/inc/footer.inc.php';
