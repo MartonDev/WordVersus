@@ -45,7 +45,7 @@
 
       <script>
 
-       notifyUser("Info", "<?php echo $result; ?>", 7000);
+       notifyUser("Info", "<?php echo $result; ?>", 12500);
 
       </script>
 

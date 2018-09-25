@@ -38,6 +38,34 @@
 
     }
 
+    public function getProfilePicture($username) {
+
+      $file = realpath(__DIR__ . '/../..') . "/img/avatars/" . $username;
+
+      if(file_exists($file . ".png")) {
+
+        return SITE_URL . "/assets/img/avatars/" . $username . ".png";
+
+      }else if(file_exists($file . ".jpg")) {
+
+        return SITE_URL . "/assets/img/avatars/" . $username . ".jpg";
+
+      }else if(file_exists($file . ".jpeg")) {
+
+        return SITE_URL . "/assets/img/avatars/" . $username . ".jpeg";
+
+      }else if(file_exists($file . ".gif")) {
+
+        return SITE_URL . "/assets/img/avatars/" . $username . ".gif";
+
+      }else {
+
+        return SITE_URL . "/assets/img/user.png";
+
+      }
+
+    }
+
     function logIn($username, $password) {
 
       $mysqli = new mysqli("localhost", MYSQL_USERNAME, MYSQL_PASSWORD, MYSQL_DATABASE);
@@ -113,7 +141,34 @@
 
     public function changePassword($currentPassword, $newPassword) {
 
+      $username = $this->getUsername();
 
+      $mysqli = new mysqli("localhost", MYSQL_USERNAME, MYSQL_PASSWORD, MYSQL_DATABASE);
+
+      $exc = $mysqli->prepare("SELECT `password` FROM `users` WHERE `username`=?");
+      $exc->bind_param("s", $username);
+      $exc->execute();
+      $exc->bind_result($hashed_password);
+      $exc->fetch();
+
+      if(password_verify($currentPassword, $hashed_password)) {
+
+        $new_hashed_password = password_hash($newPassword, PASSWORD_DEFAULT, ['cost' => 12]);
+
+        //idk why does it needs it again
+        $mysqli = new mysqli("localhost", MYSQL_USERNAME, MYSQL_PASSWORD, MYSQL_DATABASE);
+
+        $exc = $mysqli->prepare("UPDATE `users` SET `password`=? WHERE `username`=?");
+        $exc->bind_param("ss", $new_hashed_password, $username);
+        $exc->execute();
+
+        return "Successfuly changed your password!";
+
+      }else {
+
+        return "Wrong current password!";
+
+      }
 
     }
 

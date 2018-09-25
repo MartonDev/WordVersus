@@ -31,7 +31,7 @@
 
        <div class="profile-container">
 
-         <img src="../assets/img/user.png" />
+         <img src="<?php echo $userObj->getProfilePicture($userObj->getUsername()); ?>" />
 
          <div class="userinfo">
 
