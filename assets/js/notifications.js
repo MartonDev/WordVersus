@@ -44,6 +44,8 @@ function notifyUser(title, description, durration) {
 
       notifications.splice(indexOf, 1);
 
+      $(idof).remove();
+
     }
 
   }, durr);

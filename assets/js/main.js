@@ -23,6 +23,7 @@ function loadBody() {
         text.innerHTML = "New profile picture will be: " + input.value.split('\\').pop();
         imageElement.style.display = "block";
         readImage(input, imageElement);
+        notifyUser("Info", "Uploaded an image. Press Set to submit!", 5000);
 
       }else {
 

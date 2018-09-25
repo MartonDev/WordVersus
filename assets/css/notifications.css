@@ -7,6 +7,7 @@
   border-radius: 8px;
   opacity: 0.6;
   margin: 45px;
+  margin-top: 0px;
   padding: 12px;
   -webkit-transition: margin-top 0.3s;
   transition: margin-top 0.3s;
