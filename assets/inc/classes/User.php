@@ -22,6 +22,22 @@
 
     }
 
+    public function getUserId() {
+
+      $username_to_bind = $this->getUsername();
+
+      $mysqli = new mysqli("localhost", MYSQL_USERNAME, MYSQL_PASSWORD, MYSQL_DATABASE);
+
+      $exc = $mysqli->prepare("SELECT `id` FROM `users` WHERE `username`=?");
+      $exc->bind_param("s", $username_to_bind);
+      $exc->execute();
+      $exc->bind_result($id_bind);
+      $exc->fetch();
+
+      return $id_bind;
+
+    }
+
     public function getEmail() {
 
       $username_to_bind = $this->getUsername();
@@ -150,13 +166,11 @@
       $exc->execute();
       $exc->bind_result($hashed_password);
       $exc->fetch();
+      $exc->close();
 
       if(password_verify($currentPassword, $hashed_password)) {
 
         $new_hashed_password = password_hash($newPassword, PASSWORD_DEFAULT, ['cost' => 12]);
-
-        //idk why does it needs it again
-        $mysqli = new mysqli("localhost", MYSQL_USERNAME, MYSQL_PASSWORD, MYSQL_DATABASE);
 
         $exc = $mysqli->prepare("UPDATE `users` SET `password`=? WHERE `username`=?");
         $exc->bind_param("ss", $new_hashed_password, $username);

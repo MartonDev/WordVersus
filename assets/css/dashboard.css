@@ -372,6 +372,41 @@
 
 }
 
+.collection {
+
+  width: 100%;
+  margin: 0 0 20px 0;
+  padding: 0;
+
+}
+
+.collection .collection-name {
+
+  text-decoration: none;
+  padding: 15px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 22px;
+  background: linear-gradient(270deg, #6f2cd3, #8c2cd6);
+  width: 80%;
+  display: inline-block;
+
+}
+
+.collection .delete-collection {
+
+  text-decoration: none;
+  padding: 15px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 22px;
+  background: linear-gradient(270deg, #6f2cd3, #8c2cd6);
+  width: 10%;
+  display: inline-block;
+  text-align: center;
+
+}
+
 @media screen and (max-width: 790px) {
 
   .dashboard .container .main {
