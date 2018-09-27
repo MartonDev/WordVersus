@@ -432,6 +432,7 @@
   background-color: #a9abac96;
   display: inline-block;
   margin-bottom: 20px;
+  margin: 2px;
 
 }
 
@@ -441,6 +442,43 @@
   font-weight: 200 !important;
   font-size: 20px !important;
   margin: 0 0 7px 0;
+  display: inline-block;
+
+}
+
+.word-element a {
+
+  text-decoration: none;
+  color: #444f70 !important;
+  margin-left: 20px;
+  display: inline-block;
+  cursor: pointer;
+
+}
+
+.add-btn {
+
+  margin-top: 10px;
+  background-color: #a9abac96;
+  color: #444f70;
+  outline: none;
+  font-size: 20px;
+  font-weight: 200;
+  border: none;
+  cursor: pointer;
+  padding: 20px;
+  -webkit-transition: background-color 0.16s linear;
+  -ms-transition: background-color 0.16s linear;
+  transition: background-color 0.16s linear;
+
+}
+
+.add-btn:hover {
+
+  background-color: #a9abace6;
+  -webkit-transition: background-color 0.16s linear;
+  -ms-transition: background-color 0.16s linear;
+  transition: background-color 0.16s linear;
 
 }
 

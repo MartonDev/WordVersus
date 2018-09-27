@@ -1,7 +1,6 @@
 <?php
 
   $page = "Dashboard";
-  $words_page = true;
 
   require '../../assets/inc/header.inc.php';
   require '../../assets/inc/classes/Collection.php';
@@ -34,26 +33,26 @@
        <h1 class="title">Create collection</h1>
        <h1>Enter the details of your new collection</h1>
 
-       <input class="text-input collection-name-input" type="text" placeholder="Enter the name of your new collection..." value="New collection" required />
+       <input class="text-input collection-name-input" id="collectionName" type="text" placeholder="Enter the name of your new collection..." value="New collection" required />
 
-       <div class="words" id="words">
+       <button class="add-btn" id="addWordCard"><i class="fas fa-plus"></i> Add another card</button>
+       <button class="add-btn" id="submitNewCollection"><i class="fas fa-paper-plane"></i> Create collection</button>
 
-         <div class="word-element">
-
-           <h1>Word #1</h1>
-
-           <input class="text-input" type="text" placeholder="Word" required />
-           <input class="text-input" type="text" placeholder="Definition" required />
-
-         </div>
-
-       </div>
+       <div class="words" id="words"></div>
 
      </div>
 
    </div>
 
  </div>
+
+ <script src="../../assets/js/words.js"></script>
+
+ <script>
+
+  addWordCard();
+
+ </script>
 
 <?php
 
