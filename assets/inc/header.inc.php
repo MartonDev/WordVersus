@@ -72,6 +72,12 @@
 
       }
 
+      if(isset($words_page)) {
+
+        echo '<script src="' .  SITE_URL . '/assets/js/words.js"></script>';
+
+      }
+
      ?>
 
 

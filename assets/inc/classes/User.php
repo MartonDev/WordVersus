@@ -111,7 +111,7 @@
 
       session_destroy();
 
-      header("Location: ../index.php");
+      header("Location: " . SITE_URL);
       die();
 
     }
