@@ -86,7 +86,22 @@
 
     public function deleteCollection($collectionID) {
 
+      $mysqli = new mysqli("localhost", MYSQL_USERNAME, MYSQL_PASSWORD, MYSQL_DATABASE);
 
+      $exc = $mysqli->prepare("DELETE FROM `collections` WHERE `id`=?");
+      $exc->bind_param("i", $collectionID);
+      $exc->execute();
+      $exc->close();
+
+      $exc = $mysqli->prepare("SELECT `id` FROM `collection_words` ORDER BY `id` DESC LIMIT 0,1");
+      $exc->execute();
+      $exc->bind_result($best_id);
+      $exc->fetch();
+      $exc->close();
+
+      $exc = $mysqli->prepare("DELETE FROM `collection_words` WHERE `collection_id`=?");
+      $exc->bind_param("i", $collectionID);
+      $exc->execute();
 
     }
 

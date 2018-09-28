@@ -8,6 +8,14 @@
   $collectionObj = new Collection();
   $collections = $collectionObj->getCollections();
 
+  if(isset($_GET["delete"])) {
+
+    echo $collectionObj->deleteCollection($_GET["delete"]);
+    header("Location: index.php");
+    die();
+
+  }
+
  ?>
 
  <div class="dashboard">
