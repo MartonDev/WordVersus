@@ -53,6 +53,48 @@
 
     }
 
+    public function getWordsForCollection($collection_id) {
+
+      $mysqli = new mysqli("localhost", MYSQL_USERNAME, MYSQL_PASSWORD, MYSQL_DATABASE);
+
+      $exc = $mysqli->prepare("SELECT `id` FROM `collection_words` ORDER BY `id` DESC LIMIT 1");
+      $exc->execute();
+      $exc->bind_result($best_id);
+      $exc->fetch();
+      $exc->close();
+
+      $wordsResult = array();
+
+      $exc = $mysqli->prepare("SELECT `collection_id`, `word`, `meaning` FROM `collection_words` WHERE `id`=?");
+
+      for($i = 0; $i < $best_id; $i++) {
+
+        $j = $i + 1;
+
+        $currWordArray = array();
+
+        $exc->bind_param("i", $j);
+        $exc->execute();
+        $exc->bind_result($currCollectionID, $currWord, $currMeaning);
+        $exc->fetch();
+
+        if($currCollectionID == $collection_id) {
+
+          array_push($currWordArray, $currWord);
+          array_push($currWordArray, $currMeaning);
+
+          array_push($wordsResult, $currWordArray);
+
+        }
+
+      }
+
+      $exc->close();
+
+      return $wordsResult;
+
+    }
+
     public function createCollection($collection_name, $words) {
 
       $userObj = new User();
@@ -79,7 +121,7 @@
 
       }
 
-      header("Location: index.php");
+      header("Location: index.php?result=Created a new collection!");
       die();
 
     }
@@ -102,6 +144,33 @@
       $exc = $mysqli->prepare("DELETE FROM `collection_words` WHERE `collection_id`=?");
       $exc->bind_param("i", $collectionID);
       $exc->execute();
+
+    }
+
+    public function changeCollection($collectionID, $words) {
+
+      $mysqli = new mysqli("localhost", MYSQL_USERNAME, MYSQL_PASSWORD, MYSQL_DATABASE);
+
+      $exc = $mysqli->prepare("DELETE FROM `collection_words` WHERE `collection_id`=?");
+      $exc->bind_param("i", $collectionID);
+      $exc->execute();
+      $exc->close();
+
+      $words_decoded = json_decode($words);
+      $exc = $mysqli->prepare("INSERT INTO `collection_words`(`collection_id`, `word`, `meaning`) VALUES (?,?,?)");
+
+      for($i = 0; $i < count($words_decoded); $i++) {
+
+        $word_to_push = $words_decoded[$i][0];
+        $meaning_to_push = $words_decoded[$i][1];
+
+        $exc->bind_param("iss", $collectionID, $word_to_push, $meaning_to_push);
+        $exc->execute();
+
+      }
+
+      header("Location: index.php?result=Saved collection!");
+      die();
 
     }
 

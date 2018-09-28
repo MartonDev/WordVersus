@@ -52,6 +52,61 @@ function addWordCard() {
 
 }
 
+function addWordCardWithText(wordAddText, wordAddDefinition) {
+
+  var number = wordcards.length + 1;
+  var id = "card" + number;
+  var wordsContainer = document.getElementById("words");
+  var wordElement = document.createElement("DIV");
+  var wordTitle = document.createElement("H1");
+  var deleteBtn = document.createElement("A");
+  var icon = document.createElement("I");
+  var wordInput = document.createElement("INPUT");
+  var wordDefinition = document.createElement("INPUT");
+  var titleText = document.createTextNode("Word #" + number);
+
+  wordElement.id = id;
+  wordElement.style.display = "none";
+  wordTitle.id = "title" + id;
+  deleteBtn.id = "delete" + id;
+  wordInput.id = "word" + id;
+  wordDefinition.id = "definition" + id;
+  wordInput.type = "text";
+  wordDefinition.type = "text";
+  wordInput.placeholder = "Word";
+  wordDefinition.placeholder = "Definition";
+  wordInput.value = wordAddText;
+  wordDefinition.value = wordAddDefinition;
+
+  deleteBtn.onclick = function () {
+
+    deleteCard(deleteBtn);
+
+  };
+
+  wordTitle.appendChild(titleText);
+  deleteBtn.appendChild(icon);
+  wordElement.appendChild(wordTitle);
+  wordElement.appendChild(deleteBtn);
+  wordElement.appendChild(wordInput);
+  wordElement.appendChild(wordDefinition);
+  wordsContainer.appendChild(wordElement);
+
+  $(wordElement).addClass("word-element");
+  $(wordInput).addClass("text-input");
+  $(wordDefinition).addClass("text-input");
+  $(icon).addClass("fa fa-trash");
+
+  wordcards.push(id);
+
+  $(wordElement).fadeIn("fast", function() {
+
+    wordElement.style.display = "inline-block";
+
+  });
+
+}
+
 function deleteCard(element) {
 
   var indexOf = wordcards.indexOf(element.parentElement.id);

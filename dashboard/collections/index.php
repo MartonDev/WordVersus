@@ -11,7 +11,7 @@
   if(isset($_GET["delete"])) {
 
     echo $collectionObj->deleteCollection($_GET["delete"]);
-    header("Location: index.php");
+    header("Location: index.php?result=Deleted collection!");
     die();
 
   }
@@ -61,11 +61,23 @@
 
         ?>
 
+        <a href="create.php">New collection</a>
+
      </div>
 
    </div>
 
  </div>
+
+ <?php if(isset($_GET["result"])) { ?>
+
+   <script>
+
+    notifyUser("Info", "<?php echo $_GET["result"]; ?>", 5000);
+
+   </script>
+
+ <?php } ?>
 
 <?php
 
