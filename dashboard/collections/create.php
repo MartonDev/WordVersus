@@ -7,6 +7,12 @@
 
   $collectionObj = new Collection();
 
+  if(isset($_POST["collection_name"]) && isset($_POST["collection_words"])) {
+
+    $collectionObj->createCollection($_POST["collection_name"], $_POST["collection_words"]);
+
+  }
+
  ?>
 
  <div class="dashboard">

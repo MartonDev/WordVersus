@@ -114,6 +114,24 @@ document.getElementById("submitNewCollection").onclick = function () {
 
   }
 
-  window.location.href = "createProcess.php?name=" + document.getElementById("collectionName").value + "&words=" + JSON.stringify(wordsList);
+  var newCollectionForm = document.createElement("FORM");
+  var newCollectionFormName = document.createElement("INPUT");
+  var newCollectionFormWords = document.createElement("INPUT");
+
+  newCollectionForm.style.display = "none";
+  newCollectionForm.action = "";
+  newCollectionForm.method = "post";
+  newCollectionFormName.type = "text";
+  newCollectionFormName.name = "collection_name";
+  newCollectionFormName.value = document.getElementById("collectionName").value;
+  newCollectionFormWords.type = "text";
+  newCollectionFormWords.name = "collection_words";
+  newCollectionFormWords.value = JSON.stringify(wordsList);
+
+  newCollectionForm.appendChild(newCollectionFormName);
+  newCollectionForm.appendChild(newCollectionFormWords);
+  document.body.appendChild(newCollectionForm);
+
+  $(newCollectionForm).submit();
 
 }

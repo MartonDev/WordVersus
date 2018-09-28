@@ -53,6 +53,43 @@
 
     }
 
+    public function createCollection($collection_name, $words) {
+
+      $userObj = new User();
+      $userID = $userObj->getUserId();
+
+      $mysqli = new mysqli("localhost", MYSQL_USERNAME, MYSQL_PASSWORD, MYSQL_DATABASE);
+
+      $exc = $mysqli->prepare("INSERT INTO `collections`(`user_id`, `name`) VALUES (?,?)");
+      $exc->bind_param("is", $userID, $collection_name);
+      $exc->execute();
+      $exc->close();
+      $collection_id = mysqli_insert_id($mysqli);
+
+      $words_decoded = json_decode($words);
+      $exc = $mysqli->prepare("INSERT INTO `collection_words`(`collection_id`, `word`, `meaning`) VALUES (?,?,?)");
+
+      for($i = 0; $i < count($words_decoded); $i++) {
+
+        $word_to_push = $words_decoded[$i][0];
+        $meaning_to_push = $words_decoded[$i][1];
+
+        $exc->bind_param("iss", $collection_id, $word_to_push, $meaning_to_push);
+        $exc->execute();
+
+      }
+
+      header("Location: index.php");
+      die();
+
+    }
+
+    public function deleteCollection($collectionID) {
+
+
+
+    }
+
   }
 
  ?>
