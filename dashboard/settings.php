@@ -36,6 +36,24 @@
 
       if($ext == "png" || $ext == "jpg" || $ext == "jpeg" || $ext == "gif") {
 
+        if(file_exists($dir . $userObj->getUsername() . ".png")) {
+
+          unlink($dir . $userObj->getUsername() . ".png");
+
+        }else if(file_exists($dir . $userObj->getUsername() . ".jpg")) {
+
+          unlink($dir . $userObj->getUsername() . ".jpg");
+
+        }else if(file_exists($dir . $userObj->getUsername() . ".jpeg")) {
+
+          unlink($dir . $userObj->getUsername() . ".jpeg");
+
+        }else if(file_exists($dir . $userObj->getUsername() . ".gif")) {
+
+          unlink($dir . $userObj->getUsername() . ".gif");
+
+        }
+
         $path = $dir . $userObj->getUsername() . "." . $ext;
 
         if(move_uploaded_file($_FILES['avatar']['tmp_name'], $path)) {

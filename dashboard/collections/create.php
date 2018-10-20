@@ -39,7 +39,7 @@
        <h1 class="title">Create collection</h1>
        <h1>Enter the details of your new collection</h1>
 
-       <input class="text-input collection-name-input" id="collectionName" type="text" placeholder="Enter the name of your new collection..." value="New collection" required />
+       <input class="text-input collection-name-input" id="collectionName" type="text" placeholder="Enter the name of your new collection..." required />
 
        <button class="add-btn" id="addWordCard"><i class="fas fa-plus"></i> Add another card</button>
        <button class="add-btn" id="submitNewCollection"><i class="fas fa-paper-plane"></i> Create collection</button>

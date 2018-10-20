@@ -482,6 +482,45 @@
 
 }
 
+.select {
+
+  padding: 10px 20px 10px 10px;
+  outline: none !important;
+  border: 3px solid #6f2cd3;
+  border-radius: 8px;
+  font-family: ProductSans;
+  font-size: 18px;
+  color: #6f2cd3;
+  font-weight: 600;
+  background-color: transparent;
+  cursor: pointer;
+  background-image: url(../img/arrow.png);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 12px 12px;
+
+}
+
+select {
+
+  -moz-appearance: none;
+  -webkit-appearance: none;
+
+}
+
+select::-ms-expand {
+
+  display: none;
+
+}
+
+.game-code {
+
+  font-size: 42px !important;
+  margin-bottom: 0;
+
+}
+
 @media screen and (max-width: 790px) {
 
   .dashboard .container .main {

@@ -3,10 +3,22 @@
   $page = "Dashboard";
 
   require '../assets/inc/header.inc.php';
+  require '../assets/inc/classes/Game.php';
+
+  $gameObj = new Game();
 
   if(isset($_GET["loggedIn"])) {
 
     $result = "Welcome back, " . $userObj->getUsername() . "!";
+
+  }
+
+  if(isset($_GET["creategame"])) {
+
+    $game_code = $gameObj->createGame();
+
+    header("Location: game/create.php?game_code=" . $game_code);
+    die();
 
   }
 
@@ -40,7 +52,7 @@
 
        <h1>Start or join a game!</h1>
 
-       <a class="game-menu" href="game/create.php"><h1><i class="fas fa-plus"></i><br />Create a new game</h1></a>
+       <a class="game-menu" href="?creategame=true"><h1><i class="fas fa-plus"></i><br />Create a new game</h1></a>
        <a class="game-menu" href="game/join.php"><h1><i class="fas fa-user"></i><br />Join with a code</h1></a>
 
        <h1>Your word collections</h1>
