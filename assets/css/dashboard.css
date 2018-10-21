@@ -473,12 +473,18 @@
 
 }
 
-.add-btn:hover {
+.add-btn:hover:enabled {
 
   background-color: #a9abace6;
   -webkit-transition: background-color 0.16s linear;
   -ms-transition: background-color 0.16s linear;
   transition: background-color 0.16s linear;
+
+}
+
+.add-btn:hover:disabled {
+
+  cursor: not-allowed;
 
 }
 
@@ -546,6 +552,114 @@ select::-ms-expand {
   -webkit-transition: color 0.16s linear;
   -ms-transition: color 0.16s linear;
   transition: color 0.16s linear;
+
+}
+
+.game-code {
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+
+.nickname-div {
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+
+.nickname-div button {
+
+  display: block;
+  width: 100%;
+
+}
+
+.game-code button {
+
+  display: block;
+  width: 100%;
+
+}
+
+.code-input {
+
+  display: inline-block;
+  outline: none;
+  color: #999999;
+  font-size: 40px;
+  border: none;
+  border-bottom: 4px solid #a9abac;
+  width: 80px;
+  text-align: center;
+  -webkit-transition: border-color 0.16s linear;
+  -ms-transition: border-color 0.16s linear;
+  transition: border-color 0.16s linear;
+
+}
+
+.code-input:focus {
+
+  border-color: #6f2cd3;
+  -webkit-transition: border-color 0.16s linear;
+  -ms-transition: border-color 0.16s linear;
+  transition: border-color 0.16s linear;
+
+}
+
+::placeholder {
+
+  color: #a9abac;
+  opacity: 1;
+
+}
+
+:-ms-input-placeholder {
+
+  color: #a9abac;
+
+}
+
+::-ms-input-placeholder {
+
+  color: #a9abac;
+
+}
+
+.input-seperator {
+
+  display: inline-block;
+  color: #a9abac;
+  font-size: 40px;
+
+}
+
+.nickname-input {
+
+  display: inline-block;
+  outline: none;
+  color: #999999;
+  font-size: 40px;
+  border: none;
+  border-bottom: 4px solid #a9abac;
+  width: 320px;
+  -webkit-transition: border-color 0.16s linear;
+  -ms-transition: border-color 0.16s linear;
+  transition: border-color 0.16s linear;
+
+}
+
+.nickname-input:focus {
+
+  border-color: #6f2cd3;
+  -webkit-transition: border-color 0.16s linear;
+  -ms-transition: border-color 0.16s linear;
+  transition: border-color 0.16s linear;
 
 }
 

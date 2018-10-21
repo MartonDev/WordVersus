@@ -87,6 +87,47 @@
 
     }
 
+    public function validateGameCode($game_code) {
+
+      $mysqli = new mysqli("localhost", MYSQL_USERNAME, MYSQL_PASSWORD, MYSQL_DATABASE);
+
+      $exc = $mysqli->prepare("SELECT `id` FROM `games` WHERE `game_code`=?");
+      $exc->bind_param("s", $game_code);
+      $exc->execute();
+      $exc->store_result();
+
+      return $exc->num_rows;
+
+    }
+
+    public function joinGame($game_code, $nickname) {
+
+      $userObj = new User();
+      $mysqli = new mysqli("localhost", MYSQL_USERNAME, MYSQL_PASSWORD, MYSQL_DATABASE);
+
+      $userID = $userObj->getUserId();
+
+      $exc = $mysqli->prepare("UPDATE `users` SET `current_nickname`=? WHERE `id`=?");
+      $exc->bind_param("si", $nickname, $userID);
+      $exc->execute();
+      $exc->close();
+
+      $players = array();
+      $players = $this->getPlayersForGame($game_code);
+
+      array_push($players, $userID);
+
+      $updatedArray = json_encode($players);
+
+      $exc = $mysqli->prepare("UPDATE `games` SET `members`=? WHERE `game_code`=?");
+      $exc->bind_param("ss", $updatedArray, $game_code);
+      $exc->execute();
+      $exc->close();
+
+      return 1;
+
+    }
+
   }
 
  ?>

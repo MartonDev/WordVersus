@@ -23,7 +23,7 @@
 
   if($page == "Dashboard" && !($userObj->isLoggedIn())) {
 
-    header("Location: login.php");
+    header("Location: " . SITE_URL . "/dashboard/login.php");
     die();
 
   }

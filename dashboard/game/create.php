@@ -104,7 +104,7 @@
 
     }
 
-    $(document).on('change','#collectionSelect',function() {
+    $(document).on('change', '#collectionSelect', function() {
 
       $.get("../../assets/inc/lives/setcollection.php", {game_code: <?php echo $_GET["game_code"]; ?>, id: $('#collectionSelect').val()});
 
