@@ -521,6 +521,34 @@ select::-ms-expand {
 
 }
 
+.playersDiv {
+
+  margin-top: 20px;
+
+}
+
+.playersDiv a {
+
+  font-size: 20px;
+  cursor: pointer;
+  margin-bottom: 2px;
+  text-decoration: none;
+  color: #a9abac;
+  -webkit-transition: color 0.16s linear;
+  -ms-transition: color 0.16s linear;
+  transition: color 0.16s linear;
+
+}
+
+.playersDiv a:hover {
+
+  color: #6f2cd3;
+  -webkit-transition: color 0.16s linear;
+  -ms-transition: color 0.16s linear;
+  transition: color 0.16s linear;
+
+}
+
 @media screen and (max-width: 790px) {
 
   .dashboard .container .main {
