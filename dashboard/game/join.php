@@ -114,7 +114,31 @@
 
       if(waitingForTeacher) {
 
-        //code to test if game is starting and show new screen thught the loading.php file
+        var code = $("#firstpart").val() + $("#secondpart").val();
+
+        $.get("../../assets/inc/lives/ispartofgame.php", {game_code: code}, function(data) {
+
+          if(data == "") {
+
+            code = "";
+            waitingForTeacher = false;
+            document.getElementById("gamecode").style.display = "block";
+            document.getElementById("nicknamediv").style.display = "none";
+            document.getElementById("waitingdiv").style.display = "none";
+            $("#gamecode").removeClass("bounceOutLeft");
+            $("#gamecode").addClass("animated bounceInLeft");
+            $("#gamecode").css("animation-fill-mode", "none");
+            $("#gamecode").css("-webkit-animation-fill-mode", "none");
+            $('#firstpart').focus();
+            notifyUser("Info", "You have been kicked from the game!", 7000);
+
+          }else {
+
+            //code to test if game is starting and show new screen thught the loading.php file
+
+          }
+
+        });
 
       }
 
