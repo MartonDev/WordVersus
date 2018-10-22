@@ -157,7 +157,7 @@
         $exc->bind_param("sss", $username, $hashed_password, $email);
         $exc->execute();
 
-        return 'You have successfuly registered. You may log in now <a href="login.php">here</a>.';
+        return 'You have successfuly registered. You can now log in.';
 
       }
 

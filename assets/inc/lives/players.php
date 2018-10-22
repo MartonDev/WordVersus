@@ -1,5 +1,7 @@
 <?php
 
+  session_start();
+
   require '../config.inc.php';
   require '../classes/User.php';
   require '../classes/Collection.php';

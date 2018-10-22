@@ -97,7 +97,7 @@
 
       $.get("../../assets/inc/lives/validatecode.php", {game_code: code}, function(data) {
 
-        if(data == 1) {
+        if(data == "true") {
 
           $("#gamecode").addClass("animated bounceOutLeft");
           document.getElementById("nicknamediv").style.display = "block";
@@ -113,7 +113,7 @@
 
         }else {
 
-          notifyUser("Info", "Wrong game code!", 6000);
+          notifyUser("Info", data, 6000);
 
         }
 
@@ -128,17 +128,23 @@
 
       $.get("../../assets/inc/lives/joingame.php", {game_code: code, nickname: nickname}, function(data) {
 
-        if(data == 1) {
+        if(data == "true") {
 
           console.log("Joined");
 
         }else {
 
-          notifyUser("Info", "Something went wrong!", 6000);
+          notifyUser("Info", data, 6000);
 
         }
 
       });
+
+    });
+
+    $(window).on('beforeunload', function () {
+
+      return 'You haven\'t saved your changes.';
 
     });
 

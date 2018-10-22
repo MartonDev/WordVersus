@@ -59,7 +59,7 @@
        </select>
 
        <h1>Game code</h1>
-       <h1 class="game-code"><?php echo substr($_GET["game_code"], 0, 3) . "-" . substr($_GET["game_code"], 3, 5); ?></h1>
+       <h1 class="game-code-admin"><?php echo substr($_GET["game_code"], 0, 3) . "-" . substr($_GET["game_code"], 3, 5); ?></h1>
        <button class="add-btn" id="startGame"><i class="fas fa-paper-plane"></i> Start game</button>
 
        <div id="playersDiv" class="playersDiv"></div>
@@ -107,6 +107,12 @@
     $(document).on('change', '#collectionSelect', function() {
 
       $.get("../../assets/inc/lives/setcollection.php", {game_code: <?php echo $_GET["game_code"]; ?>, id: $('#collectionSelect').val()});
+
+    });
+
+    $(window).on('beforeunload', function () {
+
+      return 'You haven\'t saved your changes.';
 
     });
 

@@ -89,14 +89,42 @@
 
     public function validateGameCode($game_code) {
 
+      $userObj = new User();
       $mysqli = new mysqli("localhost", MYSQL_USERNAME, MYSQL_PASSWORD, MYSQL_DATABASE);
+
+      $userID = $userObj->getUserId();
 
       $exc = $mysqli->prepare("SELECT `id` FROM `games` WHERE `game_code`=?");
       $exc->bind_param("s", $game_code);
       $exc->execute();
       $exc->store_result();
 
-      return $exc->num_rows;
+      if($exc->num_rows > 0) {
+
+        $exc->close();
+
+        $exc = $mysqli->prepare("SELECT `hoster_id` FROM `games` WHERE `game_code`=?");
+        $exc->bind_param("s", $game_code);
+        $exc->execute();
+        $exc->bind_result($hoster_id);
+        $exc->fetch();
+        $exc->close();
+
+        if($hoster_id == $userID) {
+
+          return "You cannot join your own game!";
+
+        }else {
+
+          return "true";
+
+        }
+
+      }else {
+
+        return "Invalid game code!";
+
+      }
 
     }
 
@@ -107,15 +135,32 @@
 
       $userID = $userObj->getUserId();
 
+      $exc = $mysqli->prepare("SELECT `hoster_id` FROM `games` WHERE `game_code`=?");
+      $exc->bind_param("s", $game_code);
+      $exc->execute();
+      $exc->bind_result($hoster_id);
+      $exc->fetch();
+      $exc->close();
+
+      if($hoster_id == $userID) {
+
+        return "You cannot join your own game!";
+
+      }
+
+      $players = array();
+      $players = $this->getPlayersForGame($game_code);
+
       $exc = $mysqli->prepare("UPDATE `users` SET `current_nickname`=? WHERE `id`=?");
       $exc->bind_param("si", $nickname, $userID);
       $exc->execute();
       $exc->close();
 
-      $players = array();
-      $players = $this->getPlayersForGame($game_code);
+      if(!in_array($userID, $players)) {
 
-      array_push($players, $userID);
+        array_push($players, $userID);
+
+      }
 
       $updatedArray = json_encode($players);
 
@@ -124,7 +169,7 @@
       $exc->execute();
       $exc->close();
 
-      return 1;
+      return "true";
 
     }
 
