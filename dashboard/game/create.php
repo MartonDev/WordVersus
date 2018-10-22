@@ -50,7 +50,15 @@
 
             for($i = 0;$i < count($collections);$i++) {
 
-              echo '<option value="' . $collections[$i] . '">' . $collectionObj->getCollection($collections[$i]) . '</option>';
+              if($gameObj->getCollectionForGame($_GET["game_code"]) == $collections[$i]) {
+
+                echo '<option value="' . $collections[$i] . '" selected>' . $collectionObj->getCollection($collections[$i]) . '</option>';
+
+              }else {
+
+                echo '<option value="' . $collections[$i] . '">' . $collectionObj->getCollection($collections[$i]) . '</option>';
+
+              }
 
             }
 
@@ -113,6 +121,25 @@
     $(window).on('beforeunload', function () {
 
       return 'You haven\'t saved your changes.';
+
+    });
+
+    $("#startGame").click(function() {
+
+      $.get("../../assets/inc/lives/playercount.php", {game_code: <?php echo $_GET["game_code"]; ?>}, function(data) {
+
+        if(Number(data) < 4) {
+
+          neededAmount = 4 - Number(data);
+          notifyUser("Info", "You need " + neededAmount + " more players to start a game!", 4500);
+
+        }else {
+
+          //code to start game and show new screen thught the loading.php file
+
+        }
+
+      });
 
     });
 

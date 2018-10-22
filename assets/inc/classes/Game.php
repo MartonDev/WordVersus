@@ -31,12 +31,6 @@
 
     }
 
-    public function getGame($game_code) {
-
-
-
-    }
-
     public function getPlayersForGame($game_code) {
 
       $mysqli = new mysqli("localhost", MYSQL_USERNAME, MYSQL_PASSWORD, MYSQL_DATABASE);
@@ -84,6 +78,21 @@
       $exc->bind_param("is", $collection_id, $game_code);
       $exc->execute();
       $exc->close();
+
+    }
+
+    public function getCollectionForGame($game_code) {
+
+      $mysqli = new mysqli("localhost", MYSQL_USERNAME, MYSQL_PASSWORD, MYSQL_DATABASE);
+
+      $exc = $mysqli->prepare("SELECT `collection_id` FROM `games` WHERE `game_code`=?");
+      $exc->bind_param("s", $game_code);
+      $exc->execute();
+      $exc->bind_result($collection_id);
+      $exc->fetch();
+      $exc->close();
+
+      return $collection_id;
 
     }
 
@@ -170,6 +179,12 @@
       $exc->close();
 
       return "true";
+
+    }
+
+    public function getPlayerCountForGame($game_code) {
+
+      return count($this->getPlayersForGame($game_code));
 
     }
 

@@ -50,6 +50,26 @@
 
        </div>
 
+       <div class="waiting-div" id="waitingdiv" style="display:none;">
+
+         <div class="sk-cube-grid">
+
+            <div class="sk-cube sk-cube1"></div>
+            <div class="sk-cube sk-cube2"></div>
+            <div class="sk-cube sk-cube3"></div>
+            <div class="sk-cube sk-cube4"></div>
+            <div class="sk-cube sk-cube5"></div>
+            <div class="sk-cube sk-cube6"></div>
+            <div class="sk-cube sk-cube7"></div>
+            <div class="sk-cube sk-cube8"></div>
+            <div class="sk-cube sk-cube9"></div>
+
+          </div>
+
+          <h1>Waiting for the hoster to start the game...</h1>
+
+       </div>
+
      </div>
 
    </div>
@@ -59,6 +79,9 @@
  <script>
 
     var pastvalue = "";
+    var waitingForTeacher = false;
+
+    $('#firstpart').focus();
 
     setInterval(function() {
 
@@ -89,6 +112,12 @@
 
       }
 
+      if(waitingForTeacher) {
+
+        //code to test if game is starting and show new screen thught the loading.php file
+
+      }
+
     }, 100);
 
     $('#joinGame').click(function() {
@@ -102,14 +131,12 @@
           $("#gamecode").addClass("animated bounceOutLeft");
           document.getElementById("nicknamediv").style.display = "block";
           $("#nicknamediv").addClass("animated bounceInRight");
-          $("#nicknamediv").css("animation-fill-mode", "none");
-          $("#nicknamediv").css("-webkit-animation-fill-mode", "none");
 
           setTimeout(function(){
 
             document.getElementById("gamecode").style.display = "none";
 
-          }, 1000);
+          }, 600);
 
         }else {
 
@@ -130,7 +157,16 @@
 
         if(data == "true") {
 
-          console.log("Joined");
+          $("#nicknamediv").addClass("animated bounceOutLeft");
+          document.getElementById("waitingdiv").style.display = "block";
+          $("#waitingdiv").addClass("animated bounceInRight");
+          waitingForTeacher = true;
+
+          setTimeout(function(){
+
+            document.getElementById("nicknamediv").style.display = "none";
+
+          }, 600);
 
         }else {
 
