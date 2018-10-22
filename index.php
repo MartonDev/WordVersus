@@ -77,7 +77,7 @@
        </div>
 
        <h1 class="feature-title">Measure your skills</h1>
-       <h1 class="feature-description">WordVersus provides you a private server, where you can play with your friends, anywhere, anyime. Just generate a game-code, and you are ready go!</h1>
+       <h1 class="feature-description">WordVersus provides you a private server, where you can play with your friends, anywhere, anytime. Just generate a game-code, and you are ready go!</h1>
 
      </div>
 

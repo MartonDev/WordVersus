@@ -62,6 +62,8 @@
         ?>
 
         <a href="create.php">New collection</a>
+        <br />
+        <a href="import.php">Import a quizlet set</a>
 
      </div>
 

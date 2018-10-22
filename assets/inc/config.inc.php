@@ -8,4 +8,7 @@
   define("MYSQL_USERNAME", "wordversus");
   define("MYSQL_PASSWORD", "qVnGBTYe9BLwRPoV");
 
+  define("QUIZLET_CLIENT_ID", "25esXF9vxX");
+  define("QUIZLET_SECRET_KEY", "B8URy4MG3nNYtSXfwAPBS3");
+
  ?>
