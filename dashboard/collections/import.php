@@ -11,7 +11,7 @@
 
   if(isset($_POST["collectionName"]) && isset($_POST["setURL"])) {
 
-    if(strpos($_POST["setURL"], "https://quizlet.com/") !== false) {
+    if(strpos($_POST["setURL"], "quizlet.com/") !== false) {
 
       if(strpos($_POST["setURL"], "-flash-cards") !== false) {
 
@@ -73,7 +73,7 @@
        <form action="" method="post">
 
          <input class="text-input collection-name-input" name="collectionName" type="text" placeholder="Enter the name of your new collection..." required />
-         <input class="text-input collection-name-input" name="setURL" type="url" placeholder="Paste the quizlet set URL here..." required />
+         <input class="text-input collection-name-input" name="setURL" type="text" placeholder="Paste the quizlet set URL here..." required />
 
          <h1>The set URL format should be like this:</h1>
          <img src="../../assets/img/quizletquide.gif" />

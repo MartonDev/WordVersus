@@ -4,7 +4,7 @@
 
     public function getWordsForSet($set_url) {
 
-      $set_id = str_replace("/", "", str_replace("https://quizlet.com/", "", $set_url));
+      $set_id = str_replace("/", "", str_replace("https://", "", str_replace("quizlet.com/", "", $set_url)));
 
       $apiUrl = 'https://api.quizlet.com/2.0/sets/' . $set_id . '/terms?client_id=' . QUIZLET_CLIENT_ID;
 

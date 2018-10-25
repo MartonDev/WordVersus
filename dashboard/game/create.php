@@ -17,6 +17,13 @@
 
   }
 
+  if(count($collections) == 0) {
+
+    header("Location: ../collections/index.php?result=Please create a collection, before starting a game!");
+    die();
+
+  }
+
  ?>
 
  <div class="dashboard">
