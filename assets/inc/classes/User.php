@@ -151,13 +151,28 @@
 
       }else {
 
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT, ['cost' => 12]);
+        $exc->close();
 
-        $exc = $mysqli->prepare("INSERT INTO `users`(`username`, `password`, `email`) VALUES (?,?,?)");
-        $exc->bind_param("sss", $username, $hashed_password, $email);
+        $exc = $mysqli->prepare("SELECT `email` FROM `users` WHERE `email`=?");
+        $exc->bind_param("s", $email);
         $exc->execute();
+        $exc->store_result();
 
-        return 'You have successfuly registered. You can now log in.';
+        if($exc->num_rows > 0) {
+
+          return "Email already in use.";
+
+        }else {
+
+          $hashed_password = password_hash($password, PASSWORD_DEFAULT, ['cost' => 12]);
+
+          $exc = $mysqli->prepare("INSERT INTO `users`(`username`, `password`, `email`) VALUES (?,?,?)");
+          $exc->bind_param("sss", $username, $hashed_password, $email);
+          $exc->execute();
+
+          return 'You have successfuly registered. You can now log in.';
+
+        }
 
       }
 

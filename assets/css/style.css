@@ -7,7 +7,8 @@ body {
   -webkit-animation: backgroundColorAnimation 3s ease infinite;
   -moz-animation: backgroundColorAnimation 3s ease infinite;
 
-  font-family: ProductSans;
+  font-family: "Google Sans";
+  font-weight: 400;
 
 }
 
@@ -708,6 +709,12 @@ body {
   .nav.responsive .nav-menu {
 
     display: block;
+
+  }
+
+  .feature-description, .integration-description, .footer .right .author, .footer a {
+
+    font-weight: 400;
 
   }
 

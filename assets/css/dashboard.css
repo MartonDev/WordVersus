@@ -210,7 +210,7 @@ a {
   outline: none;
   border: none;
   border-bottom: 3px solid #a9abacb8;
-  font-family: ProductSans;
+  font-family: "Google Sans";
   font-weight: 200;
   font-size: 18px;
   padding-left: 4px;
@@ -239,7 +239,7 @@ a {
   border: none;
   background: linear-gradient(270deg, #6f2cd3, #8c2cd6);
   color: #fff;
-  font-family: ProductSans;
+  font-family: "Google Sans";
   font-weight: 200;
   font-size: 18px;
   padding: 5px 10px 5px 10px;
@@ -256,7 +256,7 @@ a {
   position: relative;
   background: linear-gradient(270deg, #6f2cd3, #8c2cd6);
   color: #fff;
-  font-family: ProductSans;
+  font-family: "Google Sans";
   font-weight: 200;
   font-size: 18px;
   padding: 5px 10px 5px 10px;
@@ -500,7 +500,7 @@ a {
   outline: none !important;
   border: 3px solid #6f2cd3;
   border-radius: 8px;
-  font-family: ProductSans;
+  font-family: "Google Sans";
   font-size: 18px;
   color: #6f2cd3;
   font-weight: 600;
@@ -764,6 +764,43 @@ select::-ms-expand {
 
 }
 
+.player-kicker .kicker-tooltip {
+
+  position: absolute;
+  opacity: 0;
+  margin-left: 6px;
+  background: linear-gradient(270deg, #6f2cd3, #8c2cd6);
+  border-radius: 3px;
+  font-size: 14px;
+  color: #fff;
+  padding: 3px 5px;
+  margin: -46px -20px 0 0;
+  transition: opacity .3s;
+  -webkit-transition: opacity .3s;
+
+}
+
+.player-kicker .kicker-tooltip::after {
+
+  content: " ";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #8c2cd6 transparent transparent transparent;
+
+}
+
+.player-kicker:hover .kicker-tooltip {
+
+  opacity: 1;
+  transition: opacity .3s;
+  -webkit-transition: opacity .3s;
+
+}
+
 @media screen and (max-width: 790px) {
 
   .dashboard .container .main {
@@ -806,6 +843,18 @@ select::-ms-expand {
   .collection-name-input {
 
     width: 100%;
+
+  }
+
+  .dashboard .container .main h1, .text-input, .submit-button, .fileContainer, .login .container .title, .add-btn {
+
+    font-weight: 400;
+
+  }
+
+  .userinfo h1 {
+
+    text-align: left;
 
   }
 
