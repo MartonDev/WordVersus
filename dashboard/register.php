@@ -37,6 +37,8 @@
 
        <input class="submit-button" type="submit" name="register-submit" value="Go!" />
 
+       <a href="login.php">Log In</a>
+
      </form>
 
    </div>

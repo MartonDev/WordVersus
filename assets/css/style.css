@@ -7,7 +7,7 @@ body {
   -webkit-animation: backgroundColorAnimation 3s ease infinite;
   -moz-animation: backgroundColorAnimation 3s ease infinite;
 
-  font-family: "Google Sans";
+  font-family: 'Google Sans',Arial,sans-serif;
   font-weight: 400;
 
 }

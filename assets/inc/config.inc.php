@@ -1,7 +1,7 @@
 <?php
 
   define("SITE_NAME", "WordVersus");
-  define("SITE_URL", "http://" . getHostByName(getHostName()) . "/wordversus.live");
+  define("SITE_URL", "http://" . getHostByName(getHostName()) . "/wordversus");
   define("SITE_DESCRIPTION", "The easy way to learn new words");
 
   define("MYSQL_DATABASE", "wordversus");
