@@ -43,6 +43,50 @@ function loadBody() {
 
 }
 
+jQuery(function() {
+
+  $(".passwordinput.check").each(function() {
+
+    $(this).after('<div class="password-checker"><div class="weakness-checker"><div class="level"></div></div>');
+
+  });
+
+  setInterval(function() {
+
+    $(".passwordinput.check").each(function() {
+
+      var widthTo = 0;
+
+      if(Number(this.value.length) < Number($(this).attr("minWidth"))) {
+
+        widthTo = Number(this.value.length) / Number($(this).attr("minWidth")) * 100;
+
+      }else {
+
+        widthTo = 100;
+
+      }
+
+      var set = widthTo + "%";
+
+      $(this).next().find(".level").css("width", set);
+
+      if($(this).is(":focus")) {
+
+        $(this).next().css("opacity", "1");
+
+      }else {
+
+        $(this).next().css("opacity", "0");
+
+      }
+
+    });
+
+  }, 200);
+
+});
+
 function endAnimation() {
 
   $(".loading-line").fadeOut();

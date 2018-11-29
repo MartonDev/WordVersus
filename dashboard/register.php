@@ -32,8 +32,8 @@
 
        <input class="text-input usernameinput" type="text" name="username" placeholder="Username..." required />
        <input class="text-input emailinput" type="email" name="email" placeholder="Email..." required />
-       <input class="text-input passwordinput" type="password" name="password1" placeholder="Password..." pattern=".{7,}" required />
-       <input class="text-input passwordinput" type="password" name="password2" placeholder="Password again..." pattern=".{7,}" required />
+       <input class="text-input passwordinput check" type="password" name="password1" minWidth="5" placeholder="Password..." pattern=".{5,}" required />
+       <input class="text-input passwordinput check" type="password" name="password2" minWidth="5" placeholder="Password again..." required />
 
        <input class="submit-button" type="submit" name="register-submit" value="Go!" />
 
