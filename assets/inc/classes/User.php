@@ -110,7 +110,7 @@
 
         $_SESSION["loggedIn"] = true;
         $_SESSION["username"] = $username;
-
+        
         return true;
 
       }else {

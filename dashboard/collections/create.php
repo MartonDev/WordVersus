@@ -36,7 +36,7 @@
 
      <div class="main">
 
-       <h1 class="title">Create collection</h1>
+       <h1 class="title"><a onclick="history.go(-1);" href="#" class="back-button"><i class="fas fa-chevron-left"></i></a> Create collection</h1>
        <h1>Enter the details of your new collection</h1>
 
        <input class="text-input collection-name-input" id="collectionName" type="text" placeholder="Enter the name of your new collection..." required />

@@ -46,7 +46,7 @@
 
      <div class="main">
 
-       <h1 class="title">Edit collection</h1>
+       <h1 class="title"><a onclick="history.go(-1);" href="#" class="back-button"><i class="fas fa-chevron-left"></i></a> Edit collection</h1>
        <h1>Edit the details of your existing collection</h1>
 
        <input class="text-input collection-name-input" id="collectionName" type="text" value="<?php echo $collectionName ?>" disabled />

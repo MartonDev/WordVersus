@@ -67,7 +67,7 @@
 
      <div class="main">
 
-       <h1 class="title">Import collection</h1>
+       <h1 class="title"><a onclick="history.go(-1);" href="#" class="back-button"><i class="fas fa-chevron-left"></i></a> Import collection</h1>
        <h1>We need some information to import your <a href="https://quizlet.com/" target="_blank">quizlet</a> set</h1>
 
        <form action="" method="post">

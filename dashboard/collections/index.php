@@ -39,7 +39,7 @@
 
      <div class="main">
 
-       <h1 class="title">Manage collections</h1>
+       <h1 class="title"><a onclick="history.go(-1);" href="#" class="back-button"><i class="fas fa-chevron-left"></i></a> Manage collections</h1>
        <h1>Select or delete a collection</h1>
 
        <?php
