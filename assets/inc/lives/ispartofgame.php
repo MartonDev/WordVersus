@@ -13,6 +13,26 @@
 
   $players = $gameObj->getPlayersForGame($_GET["game_code"]);
 
-  echo in_array($userObj->getUserId(), $players);
+  if(in_array($userObj->getUserId(), $players[0])) {
+
+    echo in_array($userObj->getUserId(), $players[0]);
+
+  }else if(in_array($userObj->getUserId(), $players[1])) {
+
+    echo in_array($userObj->getUserId(), $players[1]);
+
+  }else if(in_array($userObj->getUserId(), $players[2])) {
+
+    echo in_array($userObj->getUserId(), $players[2]);
+
+  }else if(in_array($userObj->getUserId(), $players[3])) {
+
+    echo in_array($userObj->getUserId(), $players[3]);
+
+  }else {
+
+    echo in_array($userObj->getUserId(), $players[3]);
+
+  }
 
  ?>

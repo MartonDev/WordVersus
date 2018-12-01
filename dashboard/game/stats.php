@@ -1,13 +1,25 @@
 <?php
 
-  $page = "Loading...";
+  $page = "Play";
   $game = true;
 
   require '../../assets/inc/header.inc.php';
 
+  if(!isset($_GET["game_code"])) {
+
+    header("Location: ../index.php");
+    die();
+
+  }else if(!$gameObj->exists($_GET["game_code"])) {
+
+    header("Location: ../index.php");
+    die();
+
+  }
+
  ?>
 
- <div class="loading">
+ <div class="loading" id="game-loading">
 
    <div class="container">
 
@@ -20,6 +32,12 @@
      </div>
 
    </div>
+
+ </div>
+
+ <div class="teams-stats">
+
+
 
  </div>
 

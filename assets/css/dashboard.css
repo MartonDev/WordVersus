@@ -764,9 +764,15 @@ select::-ms-expand {
 
 }
 
+.player-kicker {
+
+  position: relative;
+
+}
+
 .player-kicker .kicker-tooltip {
 
-  position: absolute;
+  display: inline-block;
   opacity: 0;
   margin-left: 6px;
   background: linear-gradient(270deg, #6f2cd3, #8c2cd6);
@@ -774,22 +780,23 @@ select::-ms-expand {
   font-size: 14px;
   color: #fff;
   padding: 3px 5px;
-  margin: -46px -20px 0 0;
   transition: opacity .3s;
   -webkit-transition: opacity .3s;
 
 }
 
-.player-kicker .kicker-tooltip::after {
+.player-kicker .kicker-tooltip::before {
 
   content: " ";
   position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-top: 2px;
+  display: inline-block;
+  margin-left: -15px;
   border-width: 5px;
   border-style: solid;
-  border-color: #8c2cd6 transparent transparent transparent;
+  border-color: transparent #8c2cd6 transparent transparent;
 
 }
 

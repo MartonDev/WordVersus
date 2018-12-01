@@ -15,7 +15,11 @@
 
   for($i = 0; $i < count($players); $i++) {
 
-    echo '<a class="player-kicker" onclick="kickUser(' . $players[$i] . ');">' . $userObj->getNicknameForUser($players[$i]) . '<div class="kicker-tooltip">Kick player!</div></a><br />';
+    for($j = 0; $j < count($players[$i]); $j++) {
+
+      echo '<a class="player-kicker" onclick="kickUser(' . $players[$i][$j] . ');">' . $userObj->getNicknameForUser($players[$i][$j]) . '<div class="kicker-tooltip">Kick player!</div></a><br />';
+
+    }
 
   }
 

@@ -7,6 +7,16 @@
   require 'classes/User.php';
   $userObj = new User();
 
+  if(isset($game)) {
+
+    require 'classes/Collection.php';
+    require 'classes/Game.php';
+
+    $collectionObj = new Collection();
+    $gameObj = new Game();
+
+  }
+
   if($userObj->isLoggedIn() && $page == "Home") {
 
     header("Location: dashboard/");

@@ -80,6 +80,7 @@
 
     var pastvalue = "";
     var waitingForTeacher = false;
+    var kickUser = false;
 
     $('#firstpart').focus();
 
@@ -120,17 +121,22 @@
 
           if(data == "") {
 
-            code = "";
-            waitingForTeacher = false;
-            document.getElementById("gamecode").style.display = "block";
-            document.getElementById("nicknamediv").style.display = "none";
-            document.getElementById("waitingdiv").style.display = "none";
-            $("#gamecode").removeClass("bounceOutLeft");
-            $("#gamecode").addClass("animated bounceInLeft");
-            $("#gamecode").css("animation-fill-mode", "none");
-            $("#gamecode").css("-webkit-animation-fill-mode", "none");
-            $('#firstpart').focus();
-            notifyUser("Info", "You have been kicked from the game!", 7000);
+            if(!kickUser) {
+
+              code = "";
+              kickUser = true;
+              waitingForTeacher = false;
+              document.getElementById("gamecode").style.display = "block";
+              document.getElementById("nicknamediv").style.display = "none";
+              document.getElementById("waitingdiv").style.display = "none";
+              $("#gamecode").removeClass("bounceOutLeft");
+              $("#gamecode").addClass("animated bounceInLeft");
+              $("#gamecode").css("animation-fill-mode", "none");
+              $("#gamecode").css("-webkit-animation-fill-mode", "none");
+              $('#firstpart').focus();
+              notifyUser("Info", "You have been kicked from the game!", 7000);
+
+            }
 
           }else {
 
@@ -185,6 +191,7 @@
           document.getElementById("waitingdiv").style.display = "block";
           $("#waitingdiv").addClass("animated bounceInRight");
           waitingForTeacher = true;
+          kickUser = false;
 
           setTimeout(function(){
 

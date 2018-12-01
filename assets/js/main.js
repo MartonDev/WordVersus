@@ -45,12 +45,6 @@ function loadBody() {
 
 jQuery(function() {
 
-  $(".passwordinput.check").each(function() {
-
-    $(this).after('<div class="password-checker"><div class="weakness-checker"><div class="level"></div></div>');
-
-  });
-
   setInterval(function() {
 
     $(".passwordinput.check").each(function() {

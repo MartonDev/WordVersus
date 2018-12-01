@@ -15,6 +15,11 @@
     header("Location: ../index.php");
     die();
 
+  }else if(!$gameObj->exists($_GET["game_code"])) {
+
+    header("Location: ../index.php");
+    die();
+
   }
 
   if(count($collections) == 0) {
@@ -125,12 +130,6 @@
 
     });
 
-    $(window).on('beforeunload', function () {
-
-      return 'You haven\'t saved your changes.';
-
-    });
-
     $("#startGame").click(function() {
 
       $.get("../../assets/inc/lives/playercount.php", {game_code: <?php echo $_GET["game_code"]; ?>}, function(data) {
@@ -142,7 +141,7 @@
 
         }else {
 
-          //code to start game and show new screen thught the loading.php file
+          window.location.href = "stats.php?game_code=<?php echo $_GET["game_code"]; ?>";
 
         }
 

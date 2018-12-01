@@ -53,9 +53,13 @@
 
       for($i = 0; $i < count($players); $i++) {
 
-        if($players[$i] == $userID) {
+        for($j = 0; $j < count($players[$i]); $j++) {
 
-          array_splice($players, $i, 1);
+          if($players[$i][$j] == $userID) {
+
+            array_splice($players[$i], $j, 1);
+
+          }
 
         }
 
@@ -137,6 +141,27 @@
 
     }
 
+    public function exists($game_code) {
+
+      $mysqli = new mysqli("localhost", MYSQL_USERNAME, MYSQL_PASSWORD, MYSQL_DATABASE);
+
+      $exc = $mysqli->prepare("SELECT `id` FROM `games` WHERE `game_code`=?");
+      $exc->bind_param("s", $game_code);
+      $exc->execute();
+      $exc->store_result();
+
+      if($exc->num_rows > 0) {
+
+        return true;
+
+      }else {
+
+        return false;
+
+      }
+
+    }
+
     public function joinGame($game_code, $nickname) {
 
       $userObj = new User();
@@ -165,13 +190,40 @@
       $exc->execute();
       $exc->close();
 
-      if(!in_array($userID, $players)) {
+      $team1 = $players[0];
+      $team2 = $players[1];
+      $team3 = $players[2];
+      $team4 = $players[3];
 
-        array_push($players, $userID);
+      if(!in_array($userID, $team1) && !in_array($userID, $team2) && !in_array($userID, $team3) && !in_array($userID, $team4)) {
+
+        if(count($team1) == 0) {
+
+          array_push($team1, $userID);
+
+        }else if(count($team1) > count($team2)) {
+
+          array_push($team2, $userID);
+
+        }else if(count($team2) > count($team3)) {
+
+          array_push($team3, $userID);
+
+        }else if(count($team3) > count($team4)) {
+
+          array_push($team4, $userID);
+
+        }else {
+
+          array_push($team1, $userID);
+
+        }
 
       }
 
-      $updatedArray = json_encode($players);
+      $updatedPlayers = array($team1, $team2, $team3, $team4);
+
+      $updatedArray = json_encode($updatedPlayers);
 
       $exc = $mysqli->prepare("UPDATE `games` SET `members`=? WHERE `game_code`=?");
       $exc->bind_param("ss", $updatedArray, $game_code);
@@ -184,7 +236,7 @@
 
     public function getPlayerCountForGame($game_code) {
 
-      return count($this->getPlayersForGame($game_code));
+      return count($this->getPlayersForGame($game_code)[0]) + count($this->getPlayersForGame($game_code)[1]) + count($this->getPlayersForGame($game_code)[2]) + count($this->getPlayersForGame($game_code)[3]);
 
     }
 

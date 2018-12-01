@@ -1,22 +1,23 @@
-window.addEventListener('load', function () {
+$(document).ready(function() {
 
-  var fill = document.getElementById("fillline");
-  var filltimeout = setTimeout(step2Loading, 820);
-  fill.style.width = "40%";
+  $("#fillline").css("width", "40%");
 
-}, false);
+  setTimeout(function () {
 
-function step2Loading() {
+    $("#fillline").css("width", "76%");
 
-  var fill = document.getElementById("fillline");
-  fill.style.width = "76%";
-  var filltimeout2 = setTimeout(step3Loading, 400);
+    setTimeout(function() {
 
-}
+      $("#fillline").css("width", "100%");
 
-function step3Loading() {
+      setTimeout(function() {
 
-  var fill = document.getElementById("fillline");
-  fill.style.width = "100%";
+        $("#game-loading").fadeOut();
 
-}
+      }, 1800);
+
+    }, 400);
+
+  }, 820);
+
+});
