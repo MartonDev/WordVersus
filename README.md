@@ -1,2 +1,2 @@
 # WordVersus
-A word-learning game. Discontinued
+A word-learning game.
