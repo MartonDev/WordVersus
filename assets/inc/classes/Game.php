@@ -167,6 +167,21 @@
 
     }
 
+    public function getHosterID($game_code) {
+
+      $mysqli = new mysqli("localhost", MYSQL_USERNAME, MYSQL_PASSWORD, MYSQL_DATABASE);
+
+      $exc = $mysqli->prepare("SELECT `hoster_id` FROM `games` WHERE `game_code`=?");
+      $exc->bind_param("s", $game_code);
+      $exc->execute();
+      $exc->bind_result($hoster_id);
+      $exc->fetch();
+      $exc->close();
+
+      return $hoster_id;
+
+    }
+
     public function validateGameCode($game_code) {
 
       $userObj = new User();

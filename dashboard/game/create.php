@@ -22,6 +22,13 @@
 
   }
 
+  if($gameObj->getHosterID($_GET["game_code"]) != $userObj->getUserId()) {
+
+    header("Location: ../index.php");
+    die();
+
+  }
+
   if(count($collections) == 0) {
 
     header("Location: ../collections/index.php?result=Please create a collection, before starting a game!");
