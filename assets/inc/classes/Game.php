@@ -72,6 +72,73 @@
       $exc->execute();
       $exc->close();
 
+      $this->reorderTeams($game_code, false);
+
+    }
+
+    public function reorderTeams($game_code, $random) {
+
+      $mysqli = new mysqli("localhost", MYSQL_USERNAME, MYSQL_PASSWORD, MYSQL_DATABASE);
+
+      $currPlayers = $this->getPlayersForGame($game_code);
+      $allPlayers = array();
+
+      for($i = 0; $i < count($currPlayers); $i++) {
+
+        for($j = 0; $j < count($currPlayers[$i]); $j++) {
+
+          array_push($allPlayers, $currPlayers[$i][$j]);
+
+        }
+
+      }
+
+      $team1 = array();
+      $team2 = array();
+      $team3 = array();
+      $team4 = array();
+
+      if($random) {
+
+        shuffle($allPlayers);
+
+      }
+
+      for($i = 0; $i < count($allPlayers); $i++) {
+
+        if(count($team1) == 0) {
+
+          array_push($team1, $allPlayers[$i]);
+
+        }else if(count($team1) > count($team2)) {
+
+          array_push($team2, $allPlayers[$i]);
+
+        }else if(count($team2) > count($team3)) {
+
+          array_push($team3, $allPlayers[$i]);
+
+        }else if(count($team3) > count($team4)) {
+
+          array_push($team4, $allPlayers[$i]);
+
+        }else {
+
+          array_push($team1, $allPlayers[$i]);
+
+        }
+
+      }
+
+      $updatedPlayers = array($team1, $team2, $team3, $team4);
+
+      $updatedArray = json_encode($updatedPlayers);
+
+      $exc = $mysqli->prepare("UPDATE `games` SET `members`=? WHERE `game_code`=?");
+      $exc->bind_param("ss", $updatedArray, $game_code);
+      $exc->execute();
+      $exc->close();
+
     }
 
     public function setCollection($game_code, $collection_id) {

@@ -3,6 +3,9 @@
   width: 100vw;
   height: 100vh;
   position: fixed;
+  background: linear-gradient(270deg, #6f2cd3, #8c2cd6);
+  background-size: 400% 400%;
+  -webkit-animation: backgroundColorAnimation 3s ease infinite;
 
 }
 
