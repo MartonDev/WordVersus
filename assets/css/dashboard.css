@@ -841,6 +841,21 @@ select::-ms-expand {
 
 }
 
+.team-div {
+
+  display: inline-block;
+  margin-right: 10px;
+  vertical-align: top;
+
+}
+
+.team-div h1 {
+
+  color: #6f2cd3 !important;
+  font-size: 23px !important;
+
+}
+
 @media screen and (max-width: 790px) {
 
   .dashboard .container .main {

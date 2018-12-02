@@ -133,7 +133,8 @@
               $("#gamecode").addClass("animated bounceInLeft");
               $("#gamecode").css("animation-fill-mode", "none");
               $("#gamecode").css("-webkit-animation-fill-mode", "none");
-              $('#firstpart').focus();
+              $("#firstpart").focus();
+              $("#nicknameinput").val("");
               notifyUser("Info", "You have been kicked from the game!", 7000);
 
             }

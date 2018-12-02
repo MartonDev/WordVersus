@@ -11,6 +11,12 @@
   $collectionObj = new Collection();
   $gameObj = new Game();
 
+  if(!$gameObj->exists($_GET["game_code"])) {
+
+    die();
+
+  }
+
   $players = $gameObj->getPlayersForGame($_GET["game_code"]);
 
   if(in_array($userObj->getUserId(), $players[0])) {
