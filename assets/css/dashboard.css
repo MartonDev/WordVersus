@@ -856,6 +856,12 @@ select::-ms-expand {
 
 }
 
+option:disabled {
+
+  cursor: not-allowed;
+
+}
+
 @media screen and (max-width: 790px) {
 
   .dashboard .container .main {

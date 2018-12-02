@@ -322,6 +322,61 @@
 
     }
 
+    public function addWordsForGame($game_code) {
+
+      $collectionObj = new Collection();
+      $mysqli = new mysqli("localhost", MYSQL_USERNAME, MYSQL_PASSWORD, MYSQL_DATABASE);
+
+      $collection_id = $this->getCollectionForGame($game_code);
+      $wordsForTeams = 12; //how many words each team gets. also set a check if the collection has 12 words in create.php
+      $wordsForCollection = $collectionObj->getWordsForCollectionByID($collection_id);
+
+      $team1Words = array();
+      $team2Words = array();
+      $team3Words = array();
+      $team4Words = array();
+
+      shuffle($wordsForCollection);
+
+      for($i = 0; $i < 12; $i++) {
+
+        array_push($team1Words, $wordsForCollection[$i]);
+
+      }
+
+      shuffle($wordsForCollection);
+
+      for($i = 0; $i < 12; $i++) {
+
+        array_push($team2Words, $wordsForCollection[$i]);
+
+      }
+
+      shuffle($wordsForCollection);
+
+      for($i = 0; $i < 12; $i++) {
+
+        array_push($team3Words, $wordsForCollection[$i]);
+
+      }
+
+      shuffle($wordsForCollection);
+
+      for($i = 0; $i < 12; $i++) {
+
+        array_push($team4Words, $wordsForCollection[$i]);
+
+      }
+
+      $wordsForGame = json_encode(array($team1Words, $team2Words, $team3Words, $team4Words));
+
+      $exc = $mysqli->prepare("UPDATE `games` SET `teams_words_id`=? WHERE `game_code`=?");
+      $exc->bind_param("ss", $wordsForGame, $game_code);
+      $exc->execute();
+      $exc->close();
+
+    }
+
   }
 
  ?>

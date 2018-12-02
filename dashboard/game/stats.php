@@ -15,7 +15,14 @@
     header("Location: ../index.php");
     die();
 
+  }else if($gameObj->getHosterID($_GET["game_code"]) != $userObj->getUserId()) {
+
+    header("Location: ../index.php");
+    die();
+
   }
+
+  $gameObj->addWordsForGame($_GET["game_code"]);
 
  ?>
 

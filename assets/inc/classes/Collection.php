@@ -53,6 +53,48 @@
 
     }
 
+    public function getWordsForCollectionByID($collection_id) {
+
+      $mysqli = new mysqli("localhost", MYSQL_USERNAME, MYSQL_PASSWORD, MYSQL_DATABASE);
+
+      $exc = $mysqli->prepare("SELECT `id` FROM `collection_words` ORDER BY `id` DESC LIMIT 1");
+      $exc->execute();
+      $exc->bind_result($best_id);
+      $exc->fetch();
+      $exc->close();
+
+      $wordsResult = array();
+
+      $exc = $mysqli->prepare("SELECT `collection_id`, `word`, `meaning` FROM `collection_words` WHERE `id`=?");
+
+      for($i = 0; $i < $best_id; $i++) {
+
+        $j = $i + 1;
+
+        $exc->bind_param("i", $j);
+        $exc->execute();
+        $exc->bind_result($currCollectionID, $currWord, $currMeaning);
+        $exc->store_result();
+        $exc->fetch();
+
+        if($exc->num_rows > 0) {
+
+          if($currCollectionID == $collection_id) {
+
+            array_push($wordsResult, $j);
+
+          }
+
+        }
+
+      }
+
+      $exc->close();
+
+      return $wordsResult;
+
+    }
+
     public function getWordsForCollection($collection_id) {
 
       $mysqli = new mysqli("localhost", MYSQL_USERNAME, MYSQL_PASSWORD, MYSQL_DATABASE);
@@ -171,6 +213,12 @@
 
       header("Location: index.php?result=Saved collection!");
       die();
+
+    }
+
+    public function getWordCountForCollection($collectionID) {
+
+      return count($this->getWordsForCollection($collectionID));
 
     }
 

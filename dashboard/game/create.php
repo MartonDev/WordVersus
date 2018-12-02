@@ -36,6 +36,31 @@
 
   }
 
+  if($collectionObj->getWordCountForCollection($gameObj->getCollectionForGame($_GET["game_code"])) >= 12) {
+
+    $found = false;
+
+    for($i = 0; $i < count($collections); $i++) {
+
+      if($collectionObj->getWordCountForCollection($collections[$i]) >= 12) {
+
+        $gameObj->setCollection($_GET["game_code"], $collections[$i]);
+        $found = true;
+        break;
+
+      }
+
+    }
+
+    if(!$found) {
+
+      header("Location: ../collections/index.php?result=You need a collection with at least 12 words!");
+      die();
+
+    }
+
+  }
+
  ?>
 
  <div class="dashboard">
@@ -62,20 +87,28 @@
        <h1 class="title">Create game</h1>
        <h1>Edit the details of your new game</h1>
 
-       <h1>Select collection</h1>
+       <h1>Select collection (you need at least 12 words in it)</h1>
        <select class="select" id="collectionSelect">
 
          <?php
 
             for($i = 0;$i < count($collections);$i++) {
 
-              if($gameObj->getCollectionForGame($_GET["game_code"]) == $collections[$i]) {
+              if($collectionObj->getWordCountForCollection($collections[$i]) >= 12) {
 
-                echo '<option value="' . $collections[$i] . '" selected>' . $collectionObj->getCollection($collections[$i]) . '</option>';
+                if($gameObj->getCollectionForGame($_GET["game_code"]) == $collections[$i]) {
+
+                  echo '<option value="' . $collections[$i] . '" selected>' . $collectionObj->getCollection($collections[$i]) . '</option>';
+
+                }else {
+
+                  echo '<option value="' . $collections[$i] . '">' . $collectionObj->getCollection($collections[$i]) . '</option>';
+
+                }
 
               }else {
 
-                echo '<option value="' . $collections[$i] . '">' . $collectionObj->getCollection($collections[$i]) . '</option>';
+                echo '<option value="' . $collections[$i] . '" disabled>' . $collectionObj->getCollection($collections[$i]) . '</option>';
 
               }
 

@@ -74,8 +74,6 @@
         echo '
 
           <link rel="stylesheet" href="' . SITE_URL . '/assets/css/dashboard.css" />
-          <link href="' . SITE_URL . '/assets/css/jquery.skeleton.css" rel="stylesheet">
-          <script src="' . SITE_URL . '/assets/js/jquery.scheletrone.js"></script>
 
         ';
 
