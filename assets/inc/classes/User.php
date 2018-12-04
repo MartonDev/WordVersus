@@ -38,6 +38,20 @@
 
     }
 
+    public function getUsernameByID($userID) {
+
+      $mysqli = new mysqli("localhost", MYSQL_USERNAME, MYSQL_PASSWORD, MYSQL_DATABASE);
+
+      $exc = $mysqli->prepare("SELECT `username` FROM `users` WHERE `id`=?");
+      $exc->bind_param("i", $userID);
+      $exc->execute();
+      $exc->bind_result($username_bind);
+      $exc->fetch();
+
+      return $username_bind;
+
+    }
+
     public function getNicknameForUser($userID) {
 
       $mysqli = new mysqli("localhost", MYSQL_USERNAME, MYSQL_PASSWORD, MYSQL_DATABASE);
@@ -110,7 +124,7 @@
 
         $_SESSION["loggedIn"] = true;
         $_SESSION["username"] = $username;
-        
+
         return true;
 
       }else {

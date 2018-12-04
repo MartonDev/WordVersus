@@ -51,7 +51,7 @@
        </div>
 
        <h1 class="feature-title">Free</h1>
-       <h1 class="feature-description">WordVersus is a free for all service. Register an account, comfirm it by your email, and you can create your own, customized game!</h1>
+       <h1 class="feature-description">WordVersus is a free for all service. Register an account, confirm it by your email, and you can create your own, customized game!</h1>
 
      </div>
 
