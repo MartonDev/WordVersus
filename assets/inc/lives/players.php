@@ -19,7 +19,7 @@
 
     for($j = 0; $j < count($players[0]); $j++) {
 
-      echo '<a class="player-kicker" onclick="kickUser(' . $players[0][$j] . ');"><img style="display:inline-block;vertical-align:middle;" width="20" height="20" src="' . $userObj->getProfilePicture($userObj->getUsernameByID($players[0][$j])) . '" /> ' . $userObj->getNicknameForUser($players[0][$j]) . '<div class="kicker-tooltip">Kick player!</div></a><br />';
+      echo '<a class="player-kicker" onclick="kickUser(' . $players[0][$j] . ');"><img style="display:inline-block;vertical-align:middle;border-radius:100%;" width="20" height="20" src="' . $userObj->getProfilePicture($userObj->getUsernameByID($players[0][$j])) . '" /> ' . $userObj->getNicknameForUser($players[0][$j]) . '<div class="kicker-tooltip">Kick player!</div></a><br />';
 
     }
 
@@ -33,7 +33,7 @@
 
     for($j = 0; $j < count($players[1]); $j++) {
 
-      echo '<a class="player-kicker" onclick="kickUser(' . $players[1][$j] . ');"><img style="display:inline-block;vertical-align:middle;" width="20" height="20" src="' . $userObj->getProfilePicture($userObj->getUsernameByID($players[0][$j])) . '" /> ' . $userObj->getNicknameForUser($players[1][$j]) . '<div class="kicker-tooltip">Kick player!</div></a><br />';
+      echo '<a class="player-kicker" onclick="kickUser(' . $players[1][$j] . ');"><img style="display:inline-block;vertical-align:middle;border-radius:100%;" width="20" height="20" src="' . $userObj->getProfilePicture($userObj->getUsernameByID($players[0][$j])) . '" /> ' . $userObj->getNicknameForUser($players[1][$j]) . '<div class="kicker-tooltip">Kick player!</div></a><br />';
 
     }
 
@@ -47,7 +47,7 @@
 
     for($j = 0; $j < count($players[2]); $j++) {
 
-      echo '<a class="player-kicker" onclick="kickUser(' . $players[2][$j] . ');"><img style="display:inline-block;vertical-align:middle;" width="20" height="20" src="' . $userObj->getProfilePicture($userObj->getUsernameByID($players[0][$j])) . '" /> ' . $userObj->getNicknameForUser($players[2][$j]) . '<div class="kicker-tooltip">Kick player!</div></a><br />';
+      echo '<a class="player-kicker" onclick="kickUser(' . $players[2][$j] . ');"><img style="display:inline-block;vertical-align:middle;border-radius:100%;" width="20" height="20" src="' . $userObj->getProfilePicture($userObj->getUsernameByID($players[0][$j])) . '" /> ' . $userObj->getNicknameForUser($players[2][$j]) . '<div class="kicker-tooltip">Kick player!</div></a><br />';
 
     }
 
@@ -61,7 +61,7 @@
 
     for($j = 0; $j < count($players[3]); $j++) {
 
-      echo '<a class="player-kicker" onclick="kickUser(' . $players[3][$j] . ');"><img style="display:inline-block;vertical-align:middle;" width="20" height="20" src="' . $userObj->getProfilePicture($userObj->getUsernameByID($players[0][$j])) . '" /> ' . $userObj->getNicknameForUser($players[3][$j]) . '<div class="kicker-tooltip">Kick player!</div></a><br />';
+      echo '<a class="player-kicker" onclick="kickUser(' . $players[3][$j] . ');"><img style="display:inline-block;vertical-align:middle;border-radius:100%;" width="20" height="20" src="' . $userObj->getProfilePicture($userObj->getUsernameByID($players[0][$j])) . '" /> ' . $userObj->getNicknameForUser($players[3][$j]) . '<div class="kicker-tooltip">Kick player!</div></a><br />';
 
     }
 
